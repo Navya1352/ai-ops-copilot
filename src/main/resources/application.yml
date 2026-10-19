@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: ai-ops-copilot
+  config:
+    import: optional:file:./secrets.properties
+  datasource:
+    url: jdbc:postgresql://localhost:5433/opscopilot
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3.2
+        temperature: 0.2
+      embedding:
+        model: nomic-embed-text
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        dimensions: 768
